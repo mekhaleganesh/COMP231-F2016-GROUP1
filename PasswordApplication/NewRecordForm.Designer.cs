@@ -161,6 +161,7 @@
             this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(178, 26);
             this.PasswordTextBox.TabIndex = 11;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // VerifyPasswordTextBox
             // 

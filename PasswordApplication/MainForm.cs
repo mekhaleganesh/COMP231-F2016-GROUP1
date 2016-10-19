@@ -23,5 +23,10 @@ namespace PasswordApplication
             Form NewRecordForm = new NewRecordForm();
             NewRecordForm.Show();
         }
+
+        private void stopTreeViewSound(object sender, KeyEventArgs e)
+        {
+            e.Handled = e.SuppressKeyPress = true;
+        }
     }
 }
