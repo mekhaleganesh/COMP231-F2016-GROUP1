@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Centennial College");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Long Account Name testing");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Category", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Centennial College");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Long Account Name testing");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Category", new System.Windows.Forms.TreeNode[] {
+            treeNode25,
+            treeNode26});
             this.CategoryFlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CategoryTreeView = new System.Windows.Forms.TreeView();
             this.InteractCategoryPanel = new System.Windows.Forms.Panel();
@@ -58,6 +59,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userRecorsDataGripToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CategoryFlowLayoutPanel1.SuspendLayout();
             this.InteractCategoryPanel.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -87,15 +89,15 @@
             this.CategoryTreeView.Location = new System.Drawing.Point(0, 8);
             this.CategoryTreeView.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.CategoryTreeView.Name = "CategoryTreeView";
-            treeNode1.Name = "CentennialCate";
-            treeNode1.Text = "Centennial College";
-            treeNode1.ToolTipText = "Contennial College Account";
-            treeNode2.Name = "Facebook";
-            treeNode2.Text = "Long Account Name testing";
-            treeNode3.Name = "CategoryRoot";
-            treeNode3.Text = "Category";
+            treeNode25.Name = "CentennialCate";
+            treeNode25.Text = "Centennial College";
+            treeNode25.ToolTipText = "Contennial College Account";
+            treeNode26.Name = "Facebook";
+            treeNode26.Text = "Long Account Name testing";
+            treeNode27.Name = "CategoryRoot";
+            treeNode27.Text = "Category";
             this.CategoryTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode27});
             this.CategoryTreeView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.CategoryTreeView.Size = new System.Drawing.Size(192, 433);
             this.CategoryTreeView.TabIndex = 1;
@@ -195,8 +197,9 @@
             this.userRecordDataGridView.ReadOnly = true;
             this.userRecordDataGridView.Size = new System.Drawing.Size(398, 439);
             this.userRecordDataGridView.TabIndex = 0;
-            this.userRecordDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.userRecordDataGridView_CellFormatting_1);
-            this.userRecordDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CopyPasteButton_Click);
+            this.userRecorsDataGripToolTip.SetToolTip(this.userRecordDataGridView, "Click the cooresponding cell to copy the user name or password");
+            this.userRecordDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.userRecordDataGridView_CellFormatting);
+            this.userRecordDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CopyPaste_Click);
             // 
             // InteractRecordPanel
             // 
@@ -337,6 +340,13 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
+            // userRecorsDataGripToolTip
+            // 
+            this.userRecorsDataGripToolTip.AutomaticDelay = 100;
+            this.userRecorsDataGripToolTip.AutoPopDelay = 2000;
+            this.userRecorsDataGripToolTip.InitialDelay = 100;
+            this.userRecorsDataGripToolTip.ReshowDelay = 20;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,6 +401,7 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolTip userRecorsDataGripToolTip;
     }
 }
 
