@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CreateNewRecordLabel = new System.Windows.Forms.Label();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
@@ -43,15 +44,19 @@
             this.VerifyPasswordTextBox = new System.Windows.Forms.TextBox();
             this.GenerateNewCateButton = new System.Windows.Forms.Button();
             this.GeneratePwButton = new System.Windows.Forms.Button();
+            this.ShowPasswordChkBox = new System.Windows.Forms.CheckBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // CreateNewRecordLabel
             // 
             this.CreateNewRecordLabel.AutoSize = true;
             this.CreateNewRecordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateNewRecordLabel.Location = new System.Drawing.Point(20, 45);
+            this.CreateNewRecordLabel.Location = new System.Drawing.Point(27, 55);
+            this.CreateNewRecordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CreateNewRecordLabel.Name = "CreateNewRecordLabel";
-            this.CreateNewRecordLabel.Size = new System.Drawing.Size(181, 24);
+            this.CreateNewRecordLabel.Size = new System.Drawing.Size(232, 29);
             this.CreateNewRecordLabel.TabIndex = 0;
             this.CreateNewRecordLabel.Text = "Create New Record:";
             // 
@@ -59,9 +64,10 @@
             // 
             this.CategoryLabel.AutoSize = true;
             this.CategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CategoryLabel.Location = new System.Drawing.Point(74, 98);
+            this.CategoryLabel.Location = new System.Drawing.Point(99, 121);
+            this.CategoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CategoryLabel.Name = "CategoryLabel";
-            this.CategoryLabel.Size = new System.Drawing.Size(77, 20);
+            this.CategoryLabel.Size = new System.Drawing.Size(98, 25);
             this.CategoryLabel.TabIndex = 1;
             this.CategoryLabel.Text = "Category:";
             // 
@@ -69,9 +75,10 @@
             // 
             this.UserNameLabel.AutoSize = true;
             this.UserNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameLabel.Location = new System.Drawing.Point(58, 140);
+            this.UserNameLabel.Location = new System.Drawing.Point(77, 172);
+            this.UserNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(93, 20);
+            this.UserNameLabel.Size = new System.Drawing.Size(116, 25);
             this.UserNameLabel.TabIndex = 2;
             this.UserNameLabel.Text = "User Name:";
             // 
@@ -79,9 +86,10 @@
             // 
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(69, 182);
+            this.PasswordLabel.Location = new System.Drawing.Point(92, 224);
+            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(82, 20);
+            this.PasswordLabel.Size = new System.Drawing.Size(104, 25);
             this.PasswordLabel.TabIndex = 3;
             this.PasswordLabel.Text = "Password:";
             // 
@@ -89,9 +97,10 @@
             // 
             this.VerifyPwLabel.AutoSize = true;
             this.VerifyPwLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VerifyPwLabel.Location = new System.Drawing.Point(25, 224);
+            this.VerifyPwLabel.Location = new System.Drawing.Point(33, 276);
+            this.VerifyPwLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.VerifyPwLabel.Name = "VerifyPwLabel";
-            this.VerifyPwLabel.Size = new System.Drawing.Size(126, 20);
+            this.VerifyPwLabel.Size = new System.Drawing.Size(159, 25);
             this.VerifyPwLabel.TabIndex = 4;
             this.VerifyPwLabel.Text = "Verify Password:";
             // 
@@ -99,18 +108,21 @@
             // 
             this.NoteLabel.AutoSize = true;
             this.NoteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoteLabel.Location = new System.Drawing.Point(104, 266);
+            this.NoteLabel.Location = new System.Drawing.Point(139, 327);
+            this.NoteLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NoteLabel.Name = "NoteLabel";
-            this.NoteLabel.Size = new System.Drawing.Size(47, 20);
+            this.NoteLabel.Size = new System.Drawing.Size(59, 25);
             this.NoteLabel.TabIndex = 5;
             this.NoteLabel.Text = "Note:";
             // 
             // SaveNewRecordButton
             // 
+            this.SaveNewRecordButton.CausesValidation = false;
             this.SaveNewRecordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveNewRecordButton.Location = new System.Drawing.Point(157, 437);
+            this.SaveNewRecordButton.Location = new System.Drawing.Point(209, 538);
+            this.SaveNewRecordButton.Margin = new System.Windows.Forms.Padding(4);
             this.SaveNewRecordButton.Name = "SaveNewRecordButton";
-            this.SaveNewRecordButton.Size = new System.Drawing.Size(91, 28);
+            this.SaveNewRecordButton.Size = new System.Drawing.Size(121, 34);
             this.SaveNewRecordButton.TabIndex = 6;
             this.SaveNewRecordButton.Text = "Save";
             this.SaveNewRecordButton.UseVisualStyleBackColor = true;
@@ -119,9 +131,10 @@
             // CancelButton
             // 
             this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(297, 437);
+            this.CancelButton.Location = new System.Drawing.Point(396, 538);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(82, 28);
+            this.CancelButton.Size = new System.Drawing.Size(109, 34);
             this.CancelButton.TabIndex = 7;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -129,55 +142,70 @@
             // 
             // CategoryOptionComboBox
             // 
+            this.CategoryOptionComboBox.CausesValidation = false;
+            this.CategoryOptionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryOptionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryOptionComboBox.FormattingEnabled = true;
-            this.CategoryOptionComboBox.Location = new System.Drawing.Point(158, 98);
+            this.CategoryOptionComboBox.Items.AddRange(new object[] {
+            "--Select One--",
+            "email",
+            "internet",
+            "bank"});
+            this.CategoryOptionComboBox.Location = new System.Drawing.Point(211, 121);
+            this.CategoryOptionComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.CategoryOptionComboBox.Name = "CategoryOptionComboBox";
-            this.CategoryOptionComboBox.Size = new System.Drawing.Size(178, 28);
+            this.CategoryOptionComboBox.Size = new System.Drawing.Size(236, 33);
             this.CategoryOptionComboBox.TabIndex = 8;
             // 
             // UserNameTextBox
             // 
+            this.UserNameTextBox.CausesValidation = false;
             this.UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameTextBox.Location = new System.Drawing.Point(158, 139);
+            this.UserNameTextBox.Location = new System.Drawing.Point(211, 171);
+            this.UserNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UserNameTextBox.Name = "UserNameTextBox";
-            this.UserNameTextBox.Size = new System.Drawing.Size(178, 26);
+            this.UserNameTextBox.Size = new System.Drawing.Size(236, 30);
             this.UserNameTextBox.TabIndex = 9;
             // 
             // NoteTextBox
             // 
             this.NoteTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoteTextBox.Location = new System.Drawing.Point(158, 266);
+            this.NoteTextBox.Location = new System.Drawing.Point(211, 327);
+            this.NoteTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.NoteTextBox.Multiline = true;
             this.NoteTextBox.Name = "NoteTextBox";
-            this.NoteTextBox.Size = new System.Drawing.Size(321, 127);
-            this.NoteTextBox.TabIndex = 10;
+            this.NoteTextBox.Size = new System.Drawing.Size(427, 155);
+            this.NoteTextBox.TabIndex = 12;
             // 
             // PasswordTextBox
             // 
+            this.PasswordTextBox.CausesValidation = false;
             this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextBox.Location = new System.Drawing.Point(158, 182);
+            this.PasswordTextBox.Location = new System.Drawing.Point(211, 224);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
-            this.PasswordTextBox.Size = new System.Drawing.Size(178, 26);
-            this.PasswordTextBox.TabIndex = 11;
-            this.PasswordTextBox.UseSystemPasswordChar = true;
+            this.PasswordTextBox.Size = new System.Drawing.Size(236, 30);
+            this.PasswordTextBox.TabIndex = 10;
             // 
             // VerifyPasswordTextBox
             // 
+            this.VerifyPasswordTextBox.CausesValidation = false;
             this.VerifyPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VerifyPasswordTextBox.Location = new System.Drawing.Point(157, 226);
+            this.VerifyPasswordTextBox.Location = new System.Drawing.Point(209, 278);
+            this.VerifyPasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.VerifyPasswordTextBox.Name = "VerifyPasswordTextBox";
             this.VerifyPasswordTextBox.PasswordChar = '*';
-            this.VerifyPasswordTextBox.Size = new System.Drawing.Size(179, 26);
-            this.VerifyPasswordTextBox.TabIndex = 12;
+            this.VerifyPasswordTextBox.Size = new System.Drawing.Size(237, 30);
+            this.VerifyPasswordTextBox.TabIndex = 11;
             // 
             // GenerateNewCateButton
             // 
             this.GenerateNewCateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenerateNewCateButton.Location = new System.Drawing.Point(351, 98);
+            this.GenerateNewCateButton.Location = new System.Drawing.Point(468, 121);
+            this.GenerateNewCateButton.Margin = new System.Windows.Forms.Padding(4);
             this.GenerateNewCateButton.Name = "GenerateNewCateButton";
-            this.GenerateNewCateButton.Size = new System.Drawing.Size(97, 28);
+            this.GenerateNewCateButton.Size = new System.Drawing.Size(129, 34);
             this.GenerateNewCateButton.TabIndex = 13;
             this.GenerateNewCateButton.Text = "New Category";
             this.GenerateNewCateButton.UseVisualStyleBackColor = true;
@@ -185,19 +213,36 @@
             // GeneratePwButton
             // 
             this.GeneratePwButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GeneratePwButton.Location = new System.Drawing.Point(351, 182);
+            this.GeneratePwButton.Location = new System.Drawing.Point(468, 224);
+            this.GeneratePwButton.Margin = new System.Windows.Forms.Padding(4);
             this.GeneratePwButton.Name = "GeneratePwButton";
-            this.GeneratePwButton.Size = new System.Drawing.Size(128, 28);
+            this.GeneratePwButton.Size = new System.Drawing.Size(171, 34);
             this.GeneratePwButton.TabIndex = 14;
             this.GeneratePwButton.Text = "Generate Password";
             this.GeneratePwButton.UseVisualStyleBackColor = true;
             // 
+            // ShowPasswordChkBox
+            // 
+            this.ShowPasswordChkBox.AutoSize = true;
+            this.ShowPasswordChkBox.Location = new System.Drawing.Point(484, 287);
+            this.ShowPasswordChkBox.Name = "ShowPasswordChkBox";
+            this.ShowPasswordChkBox.Size = new System.Drawing.Size(64, 21);
+            this.ShowPasswordChkBox.TabIndex = 15;
+            this.ShowPasswordChkBox.Text = "Show";
+            this.ShowPasswordChkBox.UseVisualStyleBackColor = true;
+            this.ShowPasswordChkBox.CheckedChanged += new System.EventHandler(this.ShowPasswordChkBox_CheckedChanged_1);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // NewRecordForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(538, 503);
+            this.ClientSize = new System.Drawing.Size(717, 619);
+            this.Controls.Add(this.ShowPasswordChkBox);
             this.Controls.Add(this.GeneratePwButton);
             this.Controls.Add(this.GenerateNewCateButton);
             this.Controls.Add(this.VerifyPasswordTextBox);
@@ -213,9 +258,12 @@
             this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.CategoryLabel);
             this.Controls.Add(this.CreateNewRecordLabel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewRecordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Record";
+            this.Load += new System.EventHandler(this.NewRecordForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +286,7 @@
         private System.Windows.Forms.TextBox VerifyPasswordTextBox;
         private System.Windows.Forms.Button GenerateNewCateButton;
         private System.Windows.Forms.Button GeneratePwButton;
+        private System.Windows.Forms.CheckBox ShowPasswordChkBox;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
