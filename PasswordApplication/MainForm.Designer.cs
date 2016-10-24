@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Centennial College");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Long Account Name testing");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Category", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Centennial College");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Long Account Name testing");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Category", new System.Windows.Forms.TreeNode[] {
+            treeNode25,
+            treeNode26});
             this.CategoryFlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CategoryTreeView = new System.Windows.Forms.TreeView();
             this.InteractCategoryPanel = new System.Windows.Forms.Panel();
@@ -41,9 +42,7 @@
             this.EditCategoetButton = new System.Windows.Forms.Button();
             this.AddCategoryButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userRecordDataGridView = new System.Windows.Forms.DataGridView();
             this.InteractRecordPanel = new System.Windows.Forms.Panel();
             this.sepLinelabel1 = new System.Windows.Forms.Label();
             this.ViewRecordButton = new System.Windows.Forms.Button();
@@ -60,10 +59,11 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userRecorsDataGripToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CategoryFlowLayoutPanel1.SuspendLayout();
             this.InteractCategoryPanel.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userRecordDataGridView)).BeginInit();
             this.InteractRecordPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,15 +89,15 @@
             this.CategoryTreeView.Location = new System.Drawing.Point(0, 8);
             this.CategoryTreeView.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.CategoryTreeView.Name = "CategoryTreeView";
-            treeNode1.Name = "CentennialCate";
-            treeNode1.Text = "Centennial College";
-            treeNode1.ToolTipText = "Contennial College Account";
-            treeNode2.Name = "Facebook";
-            treeNode2.Text = "Long Account Name testing";
-            treeNode3.Name = "CategoryRoot";
-            treeNode3.Text = "Category";
+            treeNode25.Name = "CentennialCate";
+            treeNode25.Text = "Centennial College";
+            treeNode25.ToolTipText = "Contennial College Account";
+            treeNode26.Name = "Facebook";
+            treeNode26.Text = "Long Account Name testing";
+            treeNode27.Name = "CategoryRoot";
+            treeNode27.Text = "Category";
             this.CategoryTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode27});
             this.CategoryTreeView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.CategoryTreeView.Size = new System.Drawing.Size(192, 433);
             this.CategoryTreeView.TabIndex = 1;
@@ -176,39 +176,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel2.Controls.Add(this.dataGridView1);
+            this.flowLayoutPanel2.Controls.Add(this.userRecordDataGridView);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(195, 26);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(379, 441);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(433, 441);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
-            // dataGridView1
+            // userRecordDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UserName,
-            this.Password});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(377, 439);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // UserName
-            // 
-            this.UserName.HeaderText = "User Name";
-            this.UserName.Name = "UserName";
-            // 
-            // Password
-            // 
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
+            this.userRecordDataGridView.AllowUserToAddRows = false;
+            this.userRecordDataGridView.AllowUserToDeleteRows = false;
+            this.userRecordDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.userRecordDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.userRecordDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userRecordDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userRecordDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.userRecordDataGridView.Margin = new System.Windows.Forms.Padding(0);
+            this.userRecordDataGridView.Name = "userRecordDataGridView";
+            this.userRecordDataGridView.ReadOnly = true;
+            this.userRecordDataGridView.Size = new System.Drawing.Size(398, 439);
+            this.userRecordDataGridView.TabIndex = 0;
+            this.userRecorsDataGripToolTip.SetToolTip(this.userRecordDataGridView, "Click the cooresponding cell to copy the user name or password");
+            this.userRecordDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.userRecordDataGridView_CellFormatting);
+            this.userRecordDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CopyPaste_Click);
             // 
             // InteractRecordPanel
             // 
@@ -220,7 +211,7 @@
             this.InteractRecordPanel.Controls.Add(this.NewRecordButton);
             this.InteractRecordPanel.Location = new System.Drawing.Point(195, 465);
             this.InteractRecordPanel.Name = "InteractRecordPanel";
-            this.InteractRecordPanel.Size = new System.Drawing.Size(379, 145);
+            this.InteractRecordPanel.Size = new System.Drawing.Size(433, 145);
             this.InteractRecordPanel.TabIndex = 4;
             // 
             // sepLinelabel1
@@ -349,11 +340,19 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
+            // userRecorsDataGripToolTip
+            // 
+            this.userRecorsDataGripToolTip.AutomaticDelay = 100;
+            this.userRecorsDataGripToolTip.AutoPopDelay = 2000;
+            this.userRecorsDataGripToolTip.InitialDelay = 100;
+            this.userRecorsDataGripToolTip.ReshowDelay = 20;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 610);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(626, 610);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.InteractRecordPanel);
             this.Controls.Add(this.flowLayoutPanel2);
@@ -363,10 +362,11 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Password App";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.CategoryFlowLayoutPanel1.ResumeLayout(false);
             this.InteractCategoryPanel.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userRecordDataGridView)).EndInit();
             this.InteractRecordPanel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -389,9 +389,7 @@
         private System.Windows.Forms.Button EditRecordButton;
         private System.Windows.Forms.Button NewRecordButton;
         private System.Windows.Forms.Label sepLinelabel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridView userRecordDataGridView;
         private System.Windows.Forms.Label sepLinelabel2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -403,6 +401,7 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolTip userRecorsDataGripToolTip;
     }
 }
 
