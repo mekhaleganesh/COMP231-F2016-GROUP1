@@ -23,7 +23,7 @@ namespace PasswordApplication
         private static String connectionString =
             "Integrated Security=SSPI;Persist Security Info=False;" +
             "Initial Catalog=HexylogyDB;" +       // Database name is HexylogyDB
-            "Data Source=Lenovo-PC";  // Replace your SQL server name here.
+            "Data Source=RYAN\\RYANMSSQLSERVER";  // Replace your SQL server name here.
         
         //Connecting to database and get the data for certain SQL statement
         public BindingSource GetData(string sqlCommand)
