@@ -14,9 +14,13 @@ namespace PasswordApplication
     //Create a new record screen
     public partial class NewRecordForm : Form
     {
+
+
         //CoreFunctions cf = new CoreFunctions();
         MainForm mainForm = new MainForm();
         Validation validate = new Validation();
+        DatabaseHelper dh = new DatabaseHelper();
+        
 
         public NewRecordForm()
         {
@@ -33,9 +37,6 @@ namespace PasswordApplication
         {
             //Close New Record window
             this.Close();
-            //show the main screen form
-            mainForm.Show();
-
         }
 
         private void SaveNewRecordButton_Click(object sender, EventArgs e)
@@ -44,8 +45,9 @@ namespace PasswordApplication
             {
 
                 //pass information to DB
-                //passInput();
+                passInput();
                 MessageBox.Show("Success");
+                this.Close();
             }
             else
             {
@@ -53,7 +55,6 @@ namespace PasswordApplication
                 MessageBox.Show("Please enter the correct information and try again.");
                 return;
             }
-
 
         }
         private bool validating()
@@ -128,37 +129,10 @@ namespace PasswordApplication
         //this method will go to different class if ryan's pull request gets approved.
         private void passInput()
         {
-            string getConnectionString;
-            //connection string needs to be changed once db is set up.
-            getConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=HexylogyDB;Data Source=Lenovo-PC";
-
-            //specify connection string here
-            SqlConnection conn = new SqlConnection(getConnectionString);
-            SqlCommand cmd;
-            //SqlDataAdapter adpt;
-
-            //input SQL Commands
-            try
-            {
-                cmd = new SqlCommand("INSERT INTO UserRecord(UserName,UserPassword,Note) VALUES(@Username,@Password,@Notes)", conn);
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@Username", UserNameTextBox.Text);
-                cmd.Parameters.AddWithValue("@Password", PasswordTextBox.Text);
-                //cmd.Parameters.AddWithValue("@Verify", VerifyPasswordTextBox.Text);
-                cmd.Parameters.AddWithValue("@Notes", NoteTextBox.Text);
-                //cmd.Parameters.AddWithValue("@Category", CategoryOptionComboBox.SelectedText);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                //show error in output
-                Console.WriteLine(e.ToString());
-            }
-            finally
-            {
-                conn.Close();
-            }
+            dh.PassUserName = UserNameTextBox.Text;
+            dh.PassPassword = PasswordTextBox.Text;
+            dh.PassNote = NoteTextBox.Text;
+            dh.passInput();
         }
         //method to show masked characters when checkbox is selected
         private void ShowPasswordChkBox_CheckedChanged_1(object sender, EventArgs e)
