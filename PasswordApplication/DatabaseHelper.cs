@@ -16,14 +16,39 @@ namespace PasswordApplication
     {
         //Define data source and data adapter
         private BindingSource bindingSource = new BindingSource();
-        private SqlDataAdapter dataAdapter = new SqlDataAdapter();
+        private SqlDataAdapter dataAdapter = new SqlDataAdapter(); private string pUsername;
+        //define variables
+        private string pPassword;
+        private string pNote;
+        private string pCategory;
+        //setting accessors
+        public string PassUserName
+        {
+            get { return pUsername; }
+            set { pUsername = value; }
+        }
+        public string PassPassword
+        {
+            get { return pPassword; }
+            set { pPassword = value; }
+        }
+        public string PassNote
+        {
+            get { return pNote; }
+            set { pNote = value; }
+        }
+        public string PassCategory
+        {
+            get { return pCategory; }
+            set { pCategory = value; }
+        }
 
         // Specify a connection string. Replace the given value with a 
         // valid connection string for a production database accessible to your system.
         private static String connectionString =
             "Integrated Security=SSPI;Persist Security Info=False;" +
             "Initial Catalog=HexylogyDB;" +       // Database name is HexylogyDB
-            "Data Source=RYAN\\RYANMSSQLSERVER";  // Replace your SQL server name here.
+            "Data Source=Lenovo-PC";  // Replace your SQL server name here.
         
         //Connecting to database and get the data for certain SQL statement
         public BindingSource GetData(string sqlCommand)
@@ -61,6 +86,38 @@ namespace PasswordApplication
             }
 
             return bindingSource;
+        }
+        public void passInput()
+        {
+
+            
+            //specify connection string here
+            SqlConnection conn = new SqlConnection(connectionString);
+            SqlCommand cmd;
+            //SqlDataAdapter adpt;
+
+            //input SQL Commands
+            try
+            {
+                cmd = new SqlCommand("INSERT INTO UserRecord(UserName,UserPassword,Note) VALUES(@Username,@Password,@Notes)", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Username",pUsername );
+                cmd.Parameters.AddWithValue("@Password", pPassword);
+                //cmd.Parameters.AddWithValue("@Verify", VerifyPasswordTextBox.Text);
+                cmd.Parameters.AddWithValue("@Notes", pNote);
+                //cmd.Parameters.AddWithValue("@Category", CategoryOptionComboBox.SelectedText);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                //show error in output
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

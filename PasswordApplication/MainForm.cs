@@ -16,7 +16,8 @@ namespace PasswordApplication
     {
         //set up Database helper stuff to get connection.
         private DatabaseHelper dbHelper = new DatabaseHelper();
-
+        DataGridViewRow dgvr = new DataGridViewRow();
+        ViewRecordForm vrf = new ViewRecordForm();
         public MainForm()
         {
             InitializeComponent();
@@ -125,5 +126,45 @@ namespace PasswordApplication
                 }
             }
         }
+
+      
+        private void ViewRecordButton_Click(object sender, EventArgs e)
+        {
+
+
+
+
+            //grab row selected data to method
+            vrf.UserNameTextBox.Text = userRecordDataGridView.SelectedCells.ToString();
+            //vrf.PasswordTextBox.Text = dgvr.Cells[1].Value.ToString();
+            //vrf.NoteTextBox.Text = dgvr.Cells[2].Value.ToString();
+            vrf.ShowDialog();
+
+        }
+
+        private void userRecordDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            vrf.ViewUserName = this.userRecordDataGridView.CurrentRow.Cells[0].Value.ToString();
+            vrf.ViewPassword = this.userRecordDataGridView.CurrentRow.Cells[1].Value.ToString();
+            vrf.ViewNote = this.userRecordDataGridView.CurrentRow.Cells[2].Value.ToString();
+            vrf.Show();
+
+        }
+
+
+
+
+        //private void userRecordDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex != 0)
+        //    {
+        //        //gets collection of all the rows
+        //        dgvr = this.userRecordDataGridView.Rows[e.RowIndex]; 
+
+
+        //    }
+
+        //}
     }
 }
