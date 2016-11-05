@@ -16,32 +16,15 @@ namespace PasswordApplication
     {
 
 
-
         //CoreFunctions cf = new CoreFunctions();
         MainForm mainForm = new MainForm();
         Validation validate = new Validation();
         DatabaseHelper dh = new DatabaseHelper();
-
-        //private DataViewManager dsView;
-        private DataSet ds;
+        
 
         public NewRecordForm()
         {
             InitializeComponent();
-
-            SqlConnection conn = new SqlConnection(dh.connectionString);
-            string getCategoryName = "SELECT CategoryName FROM Categories WHERE UserAccountID = 1; ";
-            SqlDataAdapter da = new SqlDataAdapter(getCategoryName, conn);
-
-            // Build a dataset
-            ds = new DataSet();
-            da.Fill(ds, "Categories");
-            // Table in Dataset
-
-            foreach (DataRow dr1 in ds.Tables[0].Rows)
-            {
-                CategoryOptionComboBox.Items.Add(dr1["CategoryName"].ToString());
-            }
 
         }
         private void NewRecordForm_Load(object sender, EventArgs e)
@@ -146,7 +129,6 @@ namespace PasswordApplication
         //this method will go to different class if ryan's pull request gets approved.
         private void passInput()
         {
-            dh.PassCategory = CategoryOptionComboBox.Text;
             dh.PassUserName = UserNameTextBox.Text;
             dh.PassPassword = PasswordTextBox.Text;
             dh.PassNote = NoteTextBox.Text;

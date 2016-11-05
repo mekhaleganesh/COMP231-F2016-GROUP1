@@ -16,10 +16,8 @@ namespace PasswordApplication
     {
         //Define data source and data adapter
         private BindingSource bindingSource = new BindingSource();
-        private SqlDataAdapter dataAdapter = new SqlDataAdapter(); 
-        
+        private SqlDataAdapter dataAdapter = new SqlDataAdapter(); private string pUsername;
         //define variables
-        private string pUsername;
         private string pPassword;
         private string pNote;
         private string pCategory;
@@ -47,8 +45,11 @@ namespace PasswordApplication
 
         // Specify a connection string. Replace the given value with a 
         // valid connection string for a production database accessible to your system.
-        public String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + "\\Hexalogydb.mdf;Integrated Security=True";
-
+        private static String connectionString =
+            "Integrated Security=SSPI;Persist Security Info=False;" +
+            "Initial Catalog=HexylogyDB;" +       // Database name is HexylogyDB
+            "Data Source=Lenovo-PC";  // Replace your SQL server name here.
+        
         //Connecting to database and get the data for certain SQL statement
         public BindingSource GetData(string sqlCommand)
         {
@@ -98,17 +99,15 @@ namespace PasswordApplication
             //input SQL Commands
             try
             {
-                MessageBox.Show(PassCategory + pUsername + pPassword + pNote);
+                cmd = new SqlCommand("INSERT INTO UserRecord(UserName,UserPassword,Note) VALUES(@Username,@Password,@Notes)", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Username",pUsername );
+                cmd.Parameters.AddWithValue("@Password", pPassword);
+                //cmd.Parameters.AddWithValue("@Verify", VerifyPasswordTextBox.Text);
+                cmd.Parameters.AddWithValue("@Notes", pNote);
+                //cmd.Parameters.AddWithValue("@Category", CategoryOptionComboBox.SelectedText);
                 conn.Open();
-                //calling methods to demonstrate sqlCommand capabilities
-                cmd = new SqlCommand("dbo.AddRecord", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@categoryName", SqlDbType.VarChar).Value = PassCategory;
-                cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = pUsername;
-                cmd.Parameters.Add("@pw", SqlDbType.VarChar).Value = pPassword;
-                cmd.Parameters.Add("@note", SqlDbType.VarChar).Value = pNote;
                 cmd.ExecuteNonQuery();
-                
             }
             catch (Exception e)
             {
