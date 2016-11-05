@@ -29,11 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Centennial College");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Long Account Name testing");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Category", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Category");
             this.CategoryFlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CategoryTreeView = new System.Windows.Forms.TreeView();
             this.InteractCategoryPanel = new System.Windows.Forms.Panel();
@@ -43,6 +39,11 @@
             this.AddCategoryButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.userRecordDataGridView = new System.Windows.Forms.DataGridView();
+            this.UserRightClickContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.InteractRecordPanel = new System.Windows.Forms.Panel();
             this.sepLinelabel1 = new System.Windows.Forms.Label();
             this.ViewRecordButton = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             this.InteractCategoryPanel.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userRecordDataGridView)).BeginInit();
+            this.UserRightClickContextMenuStrip.SuspendLayout();
             this.InteractRecordPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,11 +75,11 @@
             this.CategoryFlowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.CategoryFlowLayoutPanel1.Controls.Add(this.CategoryTreeView);
             this.CategoryFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.CategoryFlowLayoutPanel1.Location = new System.Drawing.Point(0, 32);
-            this.CategoryFlowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.CategoryFlowLayoutPanel1.Location = new System.Drawing.Point(0, 26);
+			this.CategoryFlowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.CategoryFlowLayoutPanel1.Name = "CategoryFlowLayoutPanel1";
             this.CategoryFlowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CategoryFlowLayoutPanel1.Size = new System.Drawing.Size(261, 542);
+            this.CategoryFlowLayoutPanel1.Size = new System.Drawing.Size(196, 440);
             this.CategoryFlowLayoutPanel1.TabIndex = 1;
             // 
             // CategoryTreeView
@@ -87,20 +89,15 @@
             this.CategoryTreeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryTreeView.ForeColor = System.Drawing.SystemColors.InfoText;
             this.CategoryTreeView.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.CategoryTreeView.Location = new System.Drawing.Point(0, 10);
-            this.CategoryTreeView.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.CategoryTreeView.Location = new System.Drawing.Point(0, 8);
+            this.CategoryTreeView.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.CategoryTreeView.Name = "CategoryTreeView";
-            treeNode1.Name = "CentennialCate";
-            treeNode1.Text = "Centennial College";
-            treeNode1.ToolTipText = "Contennial College Account";
-            treeNode2.Name = "Facebook";
-            treeNode2.Text = "Long Account Name testing";
-            treeNode3.Name = "CategoryRoot";
-            treeNode3.Text = "Category";
+            treeNode1.Name = "CategoryRoot";
+            treeNode1.Text = "Category";
             this.CategoryTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode1});
             this.CategoryTreeView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CategoryTreeView.Size = new System.Drawing.Size(256, 533);
+            this.CategoryTreeView.Size = new System.Drawing.Size(192, 433);
             this.CategoryTreeView.TabIndex = 1;
             this.CategoryTreeView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.stopTreeViewSound);
             // 
@@ -111,19 +108,17 @@
             this.InteractCategoryPanel.Controls.Add(this.DeleteCategoryButton);
             this.InteractCategoryPanel.Controls.Add(this.EditCategoetButton);
             this.InteractCategoryPanel.Controls.Add(this.AddCategoryButton);
-            this.InteractCategoryPanel.Location = new System.Drawing.Point(0, 572);
-            this.InteractCategoryPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.InteractCategoryPanel.Location = new System.Drawing.Point(0, 465);
             this.InteractCategoryPanel.Name = "InteractCategoryPanel";
-            this.InteractCategoryPanel.Size = new System.Drawing.Size(261, 178);
+            this.InteractCategoryPanel.Size = new System.Drawing.Size(196, 145);
             this.InteractCategoryPanel.TabIndex = 2;
             // 
             // sepLinelabel2
             // 
             this.sepLinelabel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.sepLinelabel2.Location = new System.Drawing.Point(9, -1);
-            this.sepLinelabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sepLinelabel2.Location = new System.Drawing.Point(7, -1);
             this.sepLinelabel2.Name = "sepLinelabel2";
-            this.sepLinelabel2.Size = new System.Drawing.Size(240, 2);
+            this.sepLinelabel2.Size = new System.Drawing.Size(180, 2);
             this.sepLinelabel2.TabIndex = 3;
             this.sepLinelabel2.Text = "label2";
             // 
@@ -135,10 +130,9 @@
             this.DeleteCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.DeleteCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteCategoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(206)))), ((int)(((byte)(91)))));
-            this.DeleteCategoryButton.Location = new System.Drawing.Point(16, 122);
-            this.DeleteCategoryButton.Margin = new System.Windows.Forms.Padding(4);
+            this.DeleteCategoryButton.Location = new System.Drawing.Point(12, 99);
             this.DeleteCategoryButton.Name = "DeleteCategoryButton";
-            this.DeleteCategoryButton.Size = new System.Drawing.Size(175, 42);
+            this.DeleteCategoryButton.Size = new System.Drawing.Size(131, 34);
             this.DeleteCategoryButton.TabIndex = 2;
             this.DeleteCategoryButton.Text = "Delete Category";
             this.DeleteCategoryButton.UseVisualStyleBackColor = false;
@@ -151,10 +145,9 @@
             this.EditCategoetButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.EditCategoetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditCategoetButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(206)))), ((int)(((byte)(91)))));
-            this.EditCategoetButton.Location = new System.Drawing.Point(16, 69);
-            this.EditCategoetButton.Margin = new System.Windows.Forms.Padding(4);
+            this.EditCategoetButton.Location = new System.Drawing.Point(12, 56);
             this.EditCategoetButton.Name = "EditCategoetButton";
-            this.EditCategoetButton.Size = new System.Drawing.Size(149, 42);
+            this.EditCategoetButton.Size = new System.Drawing.Size(112, 34);
             this.EditCategoetButton.TabIndex = 1;
             this.EditCategoetButton.Text = "Edit Category";
             this.EditCategoetButton.UseVisualStyleBackColor = false;
@@ -167,13 +160,13 @@
             this.AddCategoryButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.AddCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddCategoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(206)))), ((int)(((byte)(91)))));
-            this.AddCategoryButton.Location = new System.Drawing.Point(16, 17);
-            this.AddCategoryButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddCategoryButton.Location = new System.Drawing.Point(12, 14);
             this.AddCategoryButton.Name = "AddCategoryButton";
-            this.AddCategoryButton.Size = new System.Drawing.Size(149, 42);
+            this.AddCategoryButton.Size = new System.Drawing.Size(112, 34);
             this.AddCategoryButton.TabIndex = 0;
             this.AddCategoryButton.Text = "Add Category";
             this.AddCategoryButton.UseVisualStyleBackColor = false;
+            this.AddCategoryButton.Click += new System.EventHandler(this.AddCategoryButton_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -184,10 +177,9 @@
             this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel2.Controls.Add(this.userRecordDataGridView);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(260, 32);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(195, 26);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(577, 543);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(433, 441);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // userRecordDataGridView
@@ -198,16 +190,56 @@
             this.userRecordDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.userRecordDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userRecordDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userRecordDataGridView.ContextMenuStrip = this.UserRightClickContextMenuStrip;
             this.userRecordDataGridView.Location = new System.Drawing.Point(0, 0);
             this.userRecordDataGridView.Margin = new System.Windows.Forms.Padding(0);
             this.userRecordDataGridView.Name = "userRecordDataGridView";
             this.userRecordDataGridView.ReadOnly = true;
-            this.userRecordDataGridView.Size = new System.Drawing.Size(531, 540);
+            this.userRecordDataGridView.Size = new System.Drawing.Size(398, 439);
             this.userRecordDataGridView.TabIndex = 0;
             this.userRecorsDataGripToolTip.SetToolTip(this.userRecordDataGridView, "Click the cooresponding cell to copy the user name or password");
             this.userRecordDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.userRecordDataGridView_CellFormatting);
             this.userRecordDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CopyPaste_Click);
             this.userRecordDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.userRecordDataGridView_CellMouseDoubleClick);
+            this.userRecordDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.userRecordDataGridView_MouseDown);
+            // 
+            // UserRightClickContextMenuStrip
+            // 
+            this.UserRightClickContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.deleteToolStripMenuItem1,
+            this.editToolStripMenuItem1,
+            this.viewToolStripMenuItem1});
+            this.UserRightClickContextMenuStrip.Name = "UserRightClickContextMenuStrip";
+            this.UserRightClickContextMenuStrip.Size = new System.Drawing.Size(108, 92);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.newToolStripMenuItem.Text = "View";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem1
+            // 
+            this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem1.Text = "Edit";
+            this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.editTollStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem1
+            // 
+            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.editToolStripMenuItem1.Text = "Delete";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.deleteTollStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem1
+            // 
+            this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.viewToolStripMenuItem1.Text = "New";
+            this.viewToolStripMenuItem1.Click += new System.EventHandler(this.newTollStripMenuItem_Clic);
             // 
             // InteractRecordPanel
             // 
@@ -217,29 +249,26 @@
             this.InteractRecordPanel.Controls.Add(this.DeleteRecordButton);
             this.InteractRecordPanel.Controls.Add(this.EditRecordButton);
             this.InteractRecordPanel.Controls.Add(this.NewRecordButton);
-            this.InteractRecordPanel.Location = new System.Drawing.Point(260, 572);
-            this.InteractRecordPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.InteractRecordPanel.Location = new System.Drawing.Point(195, 465);
             this.InteractRecordPanel.Name = "InteractRecordPanel";
-            this.InteractRecordPanel.Size = new System.Drawing.Size(577, 178);
+            this.InteractRecordPanel.Size = new System.Drawing.Size(433, 145);
             this.InteractRecordPanel.TabIndex = 4;
             // 
             // sepLinelabel1
             // 
             this.sepLinelabel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.sepLinelabel1.Location = new System.Drawing.Point(4, 0);
-            this.sepLinelabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sepLinelabel1.Location = new System.Drawing.Point(3, 0);
             this.sepLinelabel1.Name = "sepLinelabel1";
-            this.sepLinelabel1.Size = new System.Drawing.Size(493, 2);
+            this.sepLinelabel1.Size = new System.Drawing.Size(370, 2);
             this.sepLinelabel1.TabIndex = 0;
             this.sepLinelabel1.Text = "label1";
             // 
             // ViewRecordButton
             // 
             this.ViewRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.ViewRecordButton.Location = new System.Drawing.Point(373, 18);
-            this.ViewRecordButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ViewRecordButton.Location = new System.Drawing.Point(280, 15);
             this.ViewRecordButton.Name = "ViewRecordButton";
-            this.ViewRecordButton.Size = new System.Drawing.Size(100, 33);
+            this.ViewRecordButton.Size = new System.Drawing.Size(75, 27);
             this.ViewRecordButton.TabIndex = 3;
             this.ViewRecordButton.Text = "View Record";
             this.ViewRecordButton.UseVisualStyleBackColor = true;
@@ -248,32 +277,31 @@
             // DeleteRecordButton
             // 
             this.DeleteRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.DeleteRecordButton.Location = new System.Drawing.Point(257, 18);
-            this.DeleteRecordButton.Margin = new System.Windows.Forms.Padding(4);
+            this.DeleteRecordButton.Location = new System.Drawing.Point(193, 15);
             this.DeleteRecordButton.Name = "DeleteRecordButton";
-            this.DeleteRecordButton.Size = new System.Drawing.Size(100, 33);
+            this.DeleteRecordButton.Size = new System.Drawing.Size(75, 27);
             this.DeleteRecordButton.TabIndex = 2;
             this.DeleteRecordButton.Text = "Delete Record";
             this.DeleteRecordButton.UseVisualStyleBackColor = true;
+            this.DeleteRecordButton.Click += new System.EventHandler(this.DeleteRecordButton_Click);
             // 
             // EditRecordButton
             // 
             this.EditRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.EditRecordButton.Location = new System.Drawing.Point(141, 18);
-            this.EditRecordButton.Margin = new System.Windows.Forms.Padding(4);
+            this.EditRecordButton.Location = new System.Drawing.Point(106, 15);
             this.EditRecordButton.Name = "EditRecordButton";
-            this.EditRecordButton.Size = new System.Drawing.Size(100, 33);
+            this.EditRecordButton.Size = new System.Drawing.Size(75, 27);
             this.EditRecordButton.TabIndex = 1;
             this.EditRecordButton.Text = "Edit Record";
             this.EditRecordButton.UseVisualStyleBackColor = true;
+            this.EditRecordButton.Click += new System.EventHandler(this.EditRecordButton_Click);
             // 
             // NewRecordButton
             // 
             this.NewRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.NewRecordButton.Location = new System.Drawing.Point(25, 18);
-            this.NewRecordButton.Margin = new System.Windows.Forms.Padding(4);
+            this.NewRecordButton.Location = new System.Drawing.Point(19, 15);
             this.NewRecordButton.Name = "NewRecordButton";
-            this.NewRecordButton.Size = new System.Drawing.Size(100, 33);
+            this.NewRecordButton.Size = new System.Drawing.Size(75, 27);
             this.NewRecordButton.TabIndex = 0;
             this.NewRecordButton.Text = "New Record";
             this.NewRecordButton.UseVisualStyleBackColor = true;
@@ -288,8 +316,7 @@
             this.configToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(763, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(572, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -300,19 +327,19 @@
             this.logoutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // accountToolStripMenuItem
@@ -322,25 +349,25 @@
             this.deleteToolStripMenuItem,
             this.editToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // configToolStripMenuItem
@@ -348,13 +375,13 @@
             this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem});
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.configToolStripMenuItem.Text = "Config";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // userRecorsDataGripToolTip
@@ -366,17 +393,16 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(835, 751);
+            this.ClientSize = new System.Drawing.Size(626, 610);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.InteractRecordPanel);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.InteractCategoryPanel);
             this.Controls.Add(this.CategoryFlowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Password App";
@@ -385,6 +411,7 @@
             this.InteractCategoryPanel.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userRecordDataGridView)).EndInit();
+            this.UserRightClickContextMenuStrip.ResumeLayout(false);
             this.InteractRecordPanel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -420,6 +447,11 @@
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolTip userRecorsDataGripToolTip;
+        private System.Windows.Forms.ContextMenuStrip UserRightClickContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
     }
 }
 

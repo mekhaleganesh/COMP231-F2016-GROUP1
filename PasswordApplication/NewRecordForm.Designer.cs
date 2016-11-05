@@ -147,10 +147,7 @@
             this.CategoryOptionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryOptionComboBox.FormattingEnabled = true;
             this.CategoryOptionComboBox.Items.AddRange(new object[] {
-            "--Select One--",
-            "email",
-            "internet",
-            "bank"});
+            "--Select One--"});
             this.CategoryOptionComboBox.Location = new System.Drawing.Point(211, 121);
             this.CategoryOptionComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.CategoryOptionComboBox.Name = "CategoryOptionComboBox";

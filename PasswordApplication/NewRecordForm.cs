@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using PasswordApplication.Model;
 
 namespace PasswordApplication
 {
@@ -20,11 +21,41 @@ namespace PasswordApplication
         MainForm mainForm = new MainForm();
         Validation validate = new Validation();
         DatabaseHelper dh = new DatabaseHelper();
+
+        UserNameValidator unv = new UserNameValidator();
+        PasswordValidator pv = new PasswordValidator();
+        NoteValidator nv = new NoteValidator();
+        UserRecord userRecord = new UserRecord();
         
+
+        SqlConnection conn;
+        //private DataViewManager dsView;
+        private DataSet ds;
+
 
         public NewRecordForm()
         {
             InitializeComponent();
+
+
+            conn = new SqlConnection(@"Data Source=RYAN\RYANMSSQLSERVER; Initial Catalog=HexylogyDB;Integrated Security=SSPI");
+            string getCategoryName = "SELECT DISTINCT d.CategoryID,d.CategoryName FROM UserRecord a INNER JOIN UserAccount b on b.UserAccountID = a.UserAccountID INNER JOIN UserRecordCategories c on c.RecordID = a.RecordID INNER JOIN Categories d on d.CategoryID = c.CategoryID WHERE b.UserAccountID = 1";
+            SqlDataAdapter da = new SqlDataAdapter(getCategoryName,conn);
+            
+
+            // Build a dataset
+            ds = new DataSet();
+            da.Fill(ds, "Categories");
+            // Table in Dataset
+            
+
+            DataSet ResultSet = new DataSet();
+            DatabaseHelper.manupulateCategory(1).Fill(ResultSet, "Categories");
+            foreach (DataRow dr1 in ResultSet.Tables[0].Rows)
+            {
+                CategoryOptionComboBox.Items.Add(dr1["CategoryName"].ToString());
+            }
+            
 
         }
         private void NewRecordForm_Load(object sender, EventArgs e)
@@ -43,11 +74,11 @@ namespace PasswordApplication
         {
             if (validating() == true)
             {
-
                 //pass information to DB
                 passInput();
                 MessageBox.Show("Success");
                 this.Close();
+				mainForm.Show();
             }
             else
             {
@@ -59,80 +90,62 @@ namespace PasswordApplication
         }
         private bool validating()
         {
-            //instantiating objects
-            Validation userName = new Validation();
-            Validation password = new Validation();
-            Validation verifyPassword = new Validation();
-            Validation verifyCategory = new Validation();
-            Validation verifyNote = new Validation();
-            userName.SUserName = UserNameTextBox.Text;
-            password.SPassword = PasswordTextBox.Text;
-            verifyPassword.SVerifyPassword = VerifyPasswordTextBox.Text;
-            verifyPassword.SPassword = PasswordTextBox.Text;
-            verifyCategory.SCategory = CategoryOptionComboBox.Text;
-            verifyNote.SNote = NoteTextBox.Text;
-
-            //if wrong validation, show error message
-            while (true)
+            if (unv.Validate(UserNameTextBox.Text) == true)
             {
-                if (!userName.ValidateUserName())
-                {
-                    errorProvider1.SetError(UserNameTextBox, "Please enter username in alphabers and numbers only");
-                    return false;
-                }
-                else
-                {
-                    errorProvider1.SetError(UserNameTextBox, "");
-                }
-                if (!password.ValidatePassword())
-                {
-                    errorProvider1.SetError(PasswordTextBox, "The password cannot contain any of the following: ‘,\\*&amp;$&lt;&gt;");
-                    return false;
-                }
-                else
-                {
-                    errorProvider1.SetError(PasswordTextBox, "");
-                }
-                if (!verifyPassword.VerifyPassword())
-                {
-                    errorProvider1.SetError(VerifyPasswordTextBox, "The passwords do not match.Please enter them again.");
-                    return false;
-                }
-                else
-                {
-                    errorProvider1.SetError(VerifyPasswordTextBox, "");
-
-                }
-                if (!verifyCategory.VerifyCategory())
-                {
-                    errorProvider1.SetError(CategoryOptionComboBox, "Please select a category");
-                    return false;
-                }
-                else
-                {
-                    errorProvider1.SetError(CategoryOptionComboBox, "");
-                }
-                if (!verifyNote.VerifyNote())
-                {
-                    errorProvider1.SetError(NoteTextBox, "Please don't put in any of the following characters ‘,\\*&amp;$&lt;&gt;");
-                    return false;
-                }
-                else
-                {
-                    errorProvider1.SetError(NoteTextBox, "");
-                    return true;
-                }
+                //validation for username is correct
+                errorProvider1.SetError(UserNameTextBox, "");
+            }
+            else
+            {
+                //validation for username is incorrect
+                errorProvider1.SetError(UserNameTextBox, "Please enter username in alphabets and numbers only");
+                return false;
+            }
+            if (pv.Validate(PasswordTextBox.Text) == true)
+            {
+                //validation for password is correct
+                errorProvider1.SetError(PasswordTextBox, "");
+                
+            }
+            else
+            {
+                //validation is incorrect
+                errorProvider1.SetError(PasswordTextBox, "The password cannot contain any of the following: ‘,\\*&amp;$&lt;&gt;");
+                return false;
+            }
+            if (PasswordTextBox.Text == VerifyPasswordTextBox.Text)
+            {
+                //validation for same password is correct
+                errorProvider1.SetError(VerifyPasswordTextBox, "");
+            }
+            else
+            {
+                //validation for same password is incorrect
+                errorProvider1.SetError(VerifyPasswordTextBox, "The passwords do not match.Please enter them again.");
+                return false;
+            }
+            if (nv.Validate(NoteTextBox.Text) == true)
+            {
+                //correct validation
+                errorProvider1.SetError(NoteTextBox, "");
+                return true;
+            }
+            else
+            {
+                //incorrect validation
+                errorProvider1.SetError(NoteTextBox, "Please don't put in any of the following characters ‘,\\*&amp;$&lt;&gt;");
+                return false;
             }
         }
 
-        //method to make connection to database
-        //this method will go to different class if ryan's pull request gets approved.
+        //method to make Connection to database
         private void passInput()
         {
+            dh.PassCategory = CategoryOptionComboBox.Text;
             dh.PassUserName = UserNameTextBox.Text;
             dh.PassPassword = PasswordTextBox.Text;
             dh.PassNote = NoteTextBox.Text;
-            dh.passInput();
+            dh.passInput();  
         }
         //method to show masked characters when checkbox is selected
         private void ShowPasswordChkBox_CheckedChanged_1(object sender, EventArgs e)
@@ -146,7 +159,6 @@ namespace PasswordApplication
             {
                 PasswordTextBox.PasswordChar = '*';
                 VerifyPasswordTextBox.PasswordChar = '*';
-
             }
         }
     }
