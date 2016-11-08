@@ -14,7 +14,11 @@ namespace PasswordApplication
     /// </summary>
     class SQLServerConnMaker : IDatabaseConnection
     {
-        private static String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.Environment.CurrentDirectory + "\\Hexalogydb.mdf;Integrated Security=True";
+        private static String  connectionString =
+            "Integrated Security=SSPI;Persist Security Info=False;" +
+            //"MultipleActiveResultSets=True;" +        // Enabling Multiple Active Result Sets
+            "Initial Catalog=HexylogyDB;" +       // Database name is HexylogyDB
+            "Data Source=Lenovo-PC\\Dom";  // Replace your SQL server name here.;
 
         public SqlConnection Connect()
         {
