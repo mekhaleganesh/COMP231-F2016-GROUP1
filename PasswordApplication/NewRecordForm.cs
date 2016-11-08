@@ -26,37 +26,26 @@ namespace PasswordApplication
         PasswordValidator pv = new PasswordValidator();
         NoteValidator nv = new NoteValidator();
         UserRecord userRecord = new UserRecord();
-        
 
-        SqlConnection conn;
+        SQLServerConnMaker SQLconn = new SQLServerConnMaker();
         //private DataViewManager dsView;
         private DataSet ds;
-
 
         public NewRecordForm()
         {
             InitializeComponent();
-
-
-            conn = new SqlConnection(@"Data Source=RYAN\RYANMSSQLSERVER; Initial Catalog=HexylogyDB;Integrated Security=SSPI");
-            string getCategoryName = "SELECT DISTINCT d.CategoryID,d.CategoryName FROM UserRecord a INNER JOIN UserAccount b on b.UserAccountID = a.UserAccountID INNER JOIN UserRecordCategories c on c.RecordID = a.RecordID INNER JOIN Categories d on d.CategoryID = c.CategoryID WHERE b.UserAccountID = 1";
-            SqlDataAdapter da = new SqlDataAdapter(getCategoryName,conn);
-            
+            string getCategoryName = "SELECT CategoryName FROM Categories WHERE UserAccountID = 1;";
+            SqlDataAdapter da = new SqlDataAdapter(getCategoryName, SQLconn.Connect());
 
             // Build a dataset
             ds = new DataSet();
             da.Fill(ds, "Categories");
             // Table in Dataset
-            
 
-            DataSet ResultSet = new DataSet();
-            DatabaseHelper.manupulateCategory(1).Fill(ResultSet, "Categories");
-            foreach (DataRow dr1 in ResultSet.Tables[0].Rows)
+            foreach (DataRow dr1 in ds.Tables[0].Rows)
             {
                 CategoryOptionComboBox.Items.Add(dr1["CategoryName"].ToString());
             }
-            
-
         }
         private void NewRecordForm_Load(object sender, EventArgs e)
         {
