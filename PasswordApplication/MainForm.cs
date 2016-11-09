@@ -323,5 +323,73 @@ namespace PasswordApplication
 
             }
         }
+
+        private void newCatagoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManupulateCategoryForm MCF = new ManupulateCategoryForm();
+            MCF.ShowDialog();
+        }
+
+        private void editRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                edf.GrabRecordID = (Int32)userRecordDataGridView.CurrentRow.Cells[0].Value;
+                edf.EditUserName = this.userRecordDataGridView.CurrentRow.Cells[1].Value.ToString();
+                edf.EditPassword = this.userRecordDataGridView.CurrentRow.Cells[2].Value.ToString();
+                edf.EditNote = this.userRecordDataGridView.CurrentRow.Cells[3].Value.ToString();
+                edf.Show();
+                this.Hide();
+            }
+
+            catch
+            {
+                MessageBox.Show("Please select a record first.");
+
+            }
+
+        }
+
+        private void deleteRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            if (userRecordID != 0)
+            {   //Confirm if user wants to delete the record
+                result = MessageBox.Show("Do You Want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result.Equals(DialogResult.OK))
+                {
+                    //Get the RecordId from the click row and send it as the delete record parameter
+                    DatabaseHelper.deleteRecord(userRecordID);
+                    // display the result
+                    DisplayUserRecordDataGrid();
+                    //After delete reset userRecord to 0
+                    userRecordID = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a record.");
+                return;
+            }
+        }
+
+        private void viewRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                vrf.GrabRecordID = (Int32)userRecordDataGridView.CurrentRow.Cells[0].Value;
+                vrf.ViewUserName = this.userRecordDataGridView.CurrentRow.Cells[1].Value.ToString();
+                vrf.ViewPassword = this.userRecordDataGridView.CurrentRow.Cells[2].Value.ToString();
+                vrf.ViewNote = this.userRecordDataGridView.CurrentRow.Cells[3].Value.ToString();
+                vrf.Show();
+                this.Hide();
+            }
+
+            catch
+            {
+                MessageBox.Show("Please select a record first.");
+            }
+        }
     }
 }
